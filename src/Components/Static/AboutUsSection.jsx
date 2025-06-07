@@ -1,5 +1,5 @@
 import React from "react";
-
+// this is a about section
 function AboutUsSection() {
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -16,8 +16,9 @@ function AboutUsSection() {
               href="/about"
               className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
             >
-              Learn More About Us
+              Learn More
             </a>
+            
           </div>
           <div className="md:w-1/2">
             <img

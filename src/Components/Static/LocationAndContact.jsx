@@ -25,13 +25,7 @@ const LocationAndContact = () => {
             </div>
             <div className="p-6 h-44 bg-purple-50 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-purple-800 mb-2">
-                Phone and Email
-              </h3>
-              <p className="text-gray-700">
-                Phone: (123) 456-7890
-                <br />
-                Email: info@assessmentcompany.com
-              </p>
+                </h3>
             </div>
           </div>
           <div className="md:w-1/2 h-96 rounded-lg overflow-hidden shadow-lg">

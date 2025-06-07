@@ -26,10 +26,10 @@ function Header({ isVisible }) {
             </a>
             <div className="text-left flex-1">
               <h1 className="text-xs font-semibold text-[#070F36] sm:text-base md:text-lg lg:text-2xl">
-                Awards and Certification
+               
               </h1>
               <h2 className="text-2xs font-semibold text-gray-700 sm:text-sm md:text-xl">
-                of Centurion University of Technology & Management (CUTM)
+                 Centurion University of Technology & Management (CUTM)
               </h2>
               <p className="text-xs text-gray-600 dark:text-gray-500 sm:text-sm md:text-base">
                 Awarding Body recognized by NCVET
@@ -51,7 +51,7 @@ function Header({ isVisible }) {
               />
             </div>
             <span className="text-xs sm:text-sm font-medium mb-1 sm:mb-2">
-              Toll Free: +919345678998
+              
             </span>
           </div>
         </div>
@@ -66,7 +66,7 @@ function Navigation({ handleNavItemClick, open, setOpen, links }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center py-4">
-            <span className="text-white text-lg font-semibold">AMSAY</span>
+            <span className="text-white text-lg font-semibold">AMASY</span>
           </div>
           <div className="xl:hidden">
             <button
