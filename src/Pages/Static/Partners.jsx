@@ -83,27 +83,32 @@ export default function Partners() {
 
   const assessmentAgencies = [
     {
-      name: "Agency 1",
+      name: "I ASSESS Consultants LLP",
       description:
         "Description of the agency and their role in the assessment process.",
     },
     {
-      name: "Agency 2",
+      name: "IRIS Corporate Solutions Pvt. Ltd.",
       description:
         "Description of the agency and their role in the assessment process.",
     },
     {
-      name: "Agency 3",
+      name: "Merindyne Skills India Pvt. Ltd.",
       description:
         "Description of the agency and their role in the assessment process.",
     },
     {
-      name: "Agency 3",
+      name: "MASCOT Upgradeskill and Knowledge Pvt. Ltd.",
       description:
         "Description of the agency and their role in the assessment process.",
     },
     {
-      name: "Agency 3",
+      name: "Skill Mantra Edtech Consultant India Pvt. Ltd.",
+      description:
+        "Description of the agency and their role in the assessment process.",
+    },
+    {
+      name: "Ginger Webs Pvt. Ltd.",
       description:
         "Description of the agency and their role in the assessment process.",
     },

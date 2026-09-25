@@ -20,7 +20,7 @@ const LocationAndContact = () => {
                 Company Address
               </h3>
               <p className="text-gray-700">
-                123 Main Street, Anytown USA 12345
+                JATANI, KHORDHA
               </p>
             </div>
             <div className="p-6 h-44 bg-purple-50 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1">
