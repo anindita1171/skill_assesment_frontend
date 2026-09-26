@@ -17,7 +17,7 @@ const LocationAndContact = () => {
           <div className="flex flex-col justify-center md:w-1/2 space-y-8">
             <div className="p-6 h-44 bg-blue-50 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1">
               <h3 className="text-xl font-semibold text-blue-800 mb-2">
-                Company Address
+                Office Address
               </h3>
               <p className="text-gray-700">
                 JATANI, KHORDHA
