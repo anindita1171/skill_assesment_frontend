@@ -47,7 +47,7 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-[#ffc300]">
-              Skill Assessment Platform
+              Skill Certification Platform
             </h3>
             <p className="text-sm">
               
@@ -63,7 +63,7 @@ function Footer() {
                 <span>
                   <FaMobileAlt />
                 </span>{" "}
-                +91 123456789
+                
               </p>
             </div>
             <div className="flex gap-4">
@@ -80,7 +80,7 @@ function Footer() {
           </div>
 
           <div className="grid grid-cols-3 gap-2 md:col-span-2">
-            {["Important Links", "Links", "Location"].map(
+            {["Important Links"].map(
               (sectionTitle, index) => (
                 <div key={index}>
                   <h3 className="text-xl font-bold mb-4 text-[#ffc300]">

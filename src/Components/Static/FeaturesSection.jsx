@@ -16,7 +16,7 @@ function FeaturesSection() {
             <span className="text-blue-600">different locations</span>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-700 leading-relaxed">
-            Our mission at Centurion University of Technology and Management is to deliver transformative education that integrates skill development, industry engagement, and academic excellence. As an awarding body, we aim to bridge the gap between education and employability by fostering innovation, inclusivity, and social responsibility. We are committed to empowering learners with practical knowledge and values that drive sustainable livelihoods, community development, and lifelong learning.
+            Centurion University is trusted for its skill-focused, practical, and industry-oriented approach to education. Our students are trained through hands-on learning, experiential programmes, and real-world exposure to develop job-ready competencies. To make quality skill development accessible across communities, our training programmes are delivered at multiple locations, bringing learning opportunities closer to students and local communities. Our experienced faculty and trainers focus on practical knowledge, professional skills, and competency development, helping learners become confident and future-ready. With a strong emphasis on skills, employability, innovation, and industry relevance, we prepare students to build meaningful careers and create sustainable opportunities.
           </p>
         </div>
 
@@ -35,15 +35,15 @@ function FeaturesSection() {
           />
           <FeatureCard
             image={traningpartner}
-            number="100+"
+            number="10+"
             title="Training Partners"
-            description="We have 100+ Training Partners with us"
+            description="We have 10+ Training Partners with us"
           />
           <FeatureCard
             image={assesmentagencies}
-            number="100+"
+            number="10+"
             title="Assignment Partners"
-            description="We have 100+ Assignment agencies with us"
+            description="We have 10+ Assignment agencies with us"
           />
         </div>
       </div>

@@ -12,7 +12,7 @@ const Qualification = () => {
       SECTOR: "PAPER & PAPER PRODUCTS",
       "NSQF LEVEL": 4,
       "APPROVED IN NSQC": "24TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/QF%20Paper%20Recycling%20Operator%20Cum%20Technician.pdf",
     },
     {
       "SL NO": 2,
@@ -20,7 +20,7 @@ const Qualification = () => {
       SECTOR: "POWER",
       "NSQF LEVEL": 6,
       "APPROVED IN NSQC": "30TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q%20File%20-%20Transformer%20Mfg%20Engineer.pdf",
     },
     {
       "SL NO": 3,
@@ -28,7 +28,7 @@ const Qualification = () => {
       SECTOR: "POWER",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "30TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q%20File%20Transformer%20Mfg%20Supervisor.pdf",
     },
     {
       "SL NO": 4,
@@ -36,7 +36,7 @@ const Qualification = () => {
       SECTOR: "POWER",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "30TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q%20File%20Transformer%20Testing%20Supervisor.pdf",
     },
     {
       "SL NO": 5,
@@ -44,7 +44,7 @@ const Qualification = () => {
       SECTOR: "ELECTRONICS AND HW",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "33TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File%20PCB%20NPI%20%E2%80%93%20Fabrication%20and%20Verification%20Specialist.pdf",
     },
     {
       "SL NO": 6,
@@ -53,7 +53,7 @@ const Qualification = () => {
       SECTOR: "AGRICULTURE",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "33TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File__Polyhouse%20Installation,%20Monitoring%20and%20Service%20Supervisor.pdf",
     },
     {
       "SL NO": 7,
@@ -61,7 +61,7 @@ const Qualification = () => {
       SECTOR: "AGRICULTURE",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "33TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File_Seed%20Production%20Supervisor.pdf",
     },
     {
       "SL NO": 8,
@@ -69,7 +69,7 @@ const Qualification = () => {
       SECTOR: "AGRICULTURE",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "33TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q%20File-Fisheries%20Post%20Harvest%20Supervisor.pdf",
     },
     {
       "SL NO": 9,
@@ -77,7 +77,7 @@ const Qualification = () => {
       SECTOR: "ENVIRONMENTAL SCIENCE",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "34TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File%20Paper%20Recycling%20Supervisor%20%281%29.pdf",
     },
     {
       "SL NO": 10,
@@ -85,7 +85,7 @@ const Qualification = () => {
       SECTOR: "FOOD INDUSTRY",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "34TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File%20Milk%20Testing%20Facility%20Supervisor.pdf",
     },
     {
       "SL NO": 11,
@@ -93,7 +93,7 @@ const Qualification = () => {
       SECTOR: "AGRICULTURE",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "35TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File%20Agriculture%20Value%20Addition%20Consultant.pdf",
     },
     {
       "SL NO": 12,
@@ -101,7 +101,7 @@ const Qualification = () => {
       SECTOR: "AGRICULTURE",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "35TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File_Crop%20and%20Plant%20Supervisor.pdf",
     },
     {
       "SL NO": 13,
@@ -110,7 +110,7 @@ const Qualification = () => {
       SECTOR: "AGRICULTURE",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "35TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File_Post-harvest%20Commodity%20Test%20and%20Storage%20Supervisor.pdf",
     },
     {
       "SL NO": 14,
@@ -119,7 +119,7 @@ const Qualification = () => {
       SECTOR: "CAPITAL GOODS",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "35TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/QF-Reverse%20Engineering%20and%20Additive%20Manufacturing%20%20QA%20Supervisor.pdf",
     },
     {
       "SL NO": 15,
@@ -127,7 +127,7 @@ const Qualification = () => {
       SECTOR: "CAPITAL GOODS",
       "NSQF LEVEL": 6,
       "APPROVED IN NSQC": "35TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-FILE_Plastic%20Mold%20Design%20%20and%20Manufacturing%20Engineer.pdf",
     },
     {
       "SL NO": 16,
@@ -135,7 +135,7 @@ const Qualification = () => {
       SECTOR: "CAPITAL GOODS",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "35TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File%20CNC%20Turning%20Programmer.pdf",
     },
     {
       "SL NO": 17,
@@ -143,7 +143,98 @@ const Qualification = () => {
       SECTOR: "CAPITAL GOODS",
       "NSQF LEVEL": 5,
       "APPROVED IN NSQC": "35TH NSQC",
-      "Q-FILE": "PDF link TO BE PROVIDED HERE",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q-File%20CNC%20Milling%20Programmer.pdf",
+    },
+
+
+    {
+      "SL NO": 18,
+      "QUALIFICATION NAME": "Remote Sensing junior Analyst (Agriculture)",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 5,
+      "APPROVED IN NSQC": "40TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qualification%20File-%20Remote%20Sensing%20Junior%20Analyst%20%28Agriculture%29.pdf",
+    },    
+
+    {
+      "SL NO": 19,
+      "QUALIFICATION NAME": "Aquaponics Cultivator",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 4,
+      "APPROVED IN NSQC": "40TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qf%20-Aquaponics%20Cultivator.pdf",
+    }, 
+    {
+      "SL NO": 20,
+      "QUALIFICATION NAME": "Polinator Habitat Maker ",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 3.5,
+      "APPROVED IN NSQC": "40TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/QF-Pollinator%20Habitat%20Maker.pdf",
+    }, 
+    {
+      "SL NO": 21,
+      "QUALIFICATION NAME": "Topiary Garden Artist",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 4,
+      "APPROVED IN NSQC": "40TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qualification%20File-Topiary%20Garden%20Artist.pdf",
+    }, 
+    {
+      "SL NO": 22,
+      "QUALIFICATION NAME": "Seaweed Grower and Processor",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 4,
+      "APPROVED IN NSQC": "40TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qualification%20-%20Seaweed%20Grower%20and%20Processor.pdf",
+    },
+    {
+      "SL NO": 23,
+      "QUALIFICATION NAME": "Vermimanuring Technician",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 4,
+      "APPROVED IN NSQC": "40TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/QF%20-Vermimanuring%20Technician.pdf",
+    },
+    {
+      "SL NO": 24,
+      "QUALIFICATION NAME": "Soil & Water Conservation Supervisor",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 5,
+      "APPROVED IN NSQC": "43TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qf%20-Soil%20and%20water%20Conservation%20Supervisor.pdf",
+    },
+    {
+      "SL NO": 25,
+      "QUALIFICATION NAME": "Smart Farming Supervisior",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 5,
+      "APPROVED IN NSQC": "43TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qf%20-%20Smart%20Farming%20Supervisor.pdf",
+    },
+    {
+      "SL NO": 26,
+      "QUALIFICATION NAME": "Advanced Farm Equipment Supervisor",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 5,
+      "APPROVED IN NSQC": "43TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qf-%20Advanced%20Farm%20Equipment%20Supervisor.pdf",
+    },
+    {
+      "SL NO": 27,
+      "QUALIFICATION NAME": "Dairy Processing and Development Supervisor",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 5,
+      "APPROVED IN NSQC": "43TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Qf-Dairy%20Processing%20and%20Development%20Supervisor.pdf",
+    },
+    {
+      "SL NO": 28,
+      "QUALIFICATION NAME": "Intensive Aquaculture Supervisor",
+      SECTOR: "AGRICULTURE",
+      "NSQF LEVEL": 5,
+      "APPROVED IN NSQC": "43TH NSQC",
+      "Q-FILE": "https://www.nqr.gov.in/qualification/file/Q%20File%20-%20Intensive%20Aquaculture%20Supervisor.pdf",
     },
   ];
 

@@ -9,41 +9,7 @@ import { FaChartLine, FaLightbulb, FaPuzzlePiece } from "react-icons/fa";
 
 export default function Partners() {
   const partners = [
-    {
-      name: "Partner 1",
-      description:
-        "Description of the partner and their role in the assessment process.",
-    },
-    {
-      name: "Partner 2",
-      description:
-        "Description of the partner and their role in the assessment process.",
-    },
-    {
-      name: "Partner 3",
-      description:
-        "Description of the partner and their role in the assessment process.",
-    },
-    {
-      name: "Partner 3",
-      description:
-        "Description of the partner and their role in the assessment process.",
-    },
-    {
-      name: "Partner 3",
-      description:
-        "Description of the partner and their role in the assessment process.",
-    },
-    {
-      name: "Partner 3",
-      description:
-        "Description of the partner and their role in the assessment process.",
-    },
-    {
-      name: "Partner 3",
-      description:
-        "Description of the partner and their role in the assessment process.",
-    },
+    
   ];
 
   const trainingPartners = [
@@ -119,14 +85,7 @@ export default function Partners() {
       <main className="flex-1">
         <HeroSection />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <CarouselSection
-            title="Our"
-            title2="Trusted Stakeholders"
-            description="We collaborate with a network of leading organizations to deliver comprehensive assessment solutions."
-            items={partners}
-            CardComponent={PartnerCard}
-            bgColor="bg-blue-50"
-          />
+          
           <CarouselSection
             title="Our"
             title2="Training Partners"
@@ -367,24 +326,9 @@ function Testimonials() {
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
-          <TestimonialCard
-            quote="The assessment solutions provided by this company have been invaluable in helping us identify and develop the talents of our employees. Highly recommended!"
-            name="John Doe"
-            title="CEO, Acme Inc."
-            imageSrc="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhaW5pbmd8ZW58MHx8MHx8fDA%3D"
-          />
-          <TestimonialCard
-            quote="Working with this assessment company has been a game-changer for our organization. Their expertise and innovative solutions have helped us unlock the full potential of our team."
-            name="Jane Smith"
-            title="HR Manager, Globex Inc."
-            imageSrc="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhaW5pbmd8ZW58MHx8MHx8fDA%3D"
-          />
-          <TestimonialCard
-            quote="Working with this assessment company has been a game-changer for our organization. Their expertise and innovative solutions have helped us unlock the full potential of our team."
-            name="Jane Smith"
-            title="HR Manager, Globex Inc."
-            imageSrc="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhaW5pbmd8ZW58MHx8MHx8fDA%3D"
-          />
+          
+          
+          
           <TestimonialCard
             quote="Working with this assessment company has been a game-changer for our organization. Their expertise and innovative solutions have helped us unlock the full potential of our team."
             name="Jane Smith"

@@ -113,10 +113,11 @@ function ContactHeroSection() {
               Contact <span className="text-blue-600">Us</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-600">
-              We're here to help! Get in touch with our team to learn more about
-              our assessment solutions and how we can empower your organization.
-              We're here to help! Get in touch with our team to learn more about
-              our assessment solutions and how we can empower your organization.
+              We're here to help! Have questions about qualifications, assessment, certification, training partners, or skill development opportunities? Our team at Centurion University of Technology and Management (CUTM) is here to assist you.
+
+Whether you are a learner, training partner, industry representative, institution, or other stakeholder, we welcome your enquiries and feedback. Please contact us for information and assistance related to our qualifications, assessments, certification processes, and Awarding Body activities.
+
+We look forward to hearing from you and working together to support skill development and career opportunities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Link

@@ -10,8 +10,12 @@ function AboutUsSection() {
               About <span className="text-blue-600">Us</span>
             </h2>
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
-              Centurion University of Technology and Management (CUTM) is a pioneering institution recognized for its commitment to skill-integrated, outcome-based education. As an awarding body, CUTM empowers learners with nationally and globally relevant qualifications, blending academic excellence with hands-on industry training. Accredited and acclaimed for its innovation-driven model, the university serves as a catalyst for sustainable development and inclusive growth, shaping job-ready professionals and entrepreneurs across diverse sectors.
-            </p>
+              Centurion University of Technology and Management (CUTM) is a pioneering Skill University focused on practical learning, skill development, employability, entrepreneurship, innovation, and industry relevance. Our “learning by doing” approach integrates academic knowledge with hands-on training, experiential learning, and real-world problem-solving, preparing learners for the future of work.
+
+As a Skill University, CUTM bridges education, skills, industry, and opportunities by integrating higher education with vocational learning and practical training. The University is recognised by the National Council for Vocational Education and Training (NCVET) as an Awarding Body, contributing to India's national skill assessment and certification ecosystem.
+
+Centurion University — where knowledge meets skills and skills create opportunities.
+          </p>
             <a
               href="/about"
               className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
@@ -22,7 +26,7 @@ function AboutUsSection() {
           </div>
           <div className="md:w-1/2">
             <img
-              src="https://images.unsplash.com/photo-1531973576160-7125cd663d86"
+              src="\MRC_5982.JPG"
               alt="About Us"
               className="w-full h-auto object-cover rounded-lg shadow-2xl transform hover:scale-105 transition duration-300 ease-in-out"
             />

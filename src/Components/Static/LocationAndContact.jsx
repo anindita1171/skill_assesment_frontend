@@ -20,7 +20,8 @@ const LocationAndContact = () => {
                 Office Address
               </h3>
               <p className="text-gray-700">
-                JATANI, KHORDHA
+                Ramchandrapur, P.O. – Jatni, Bhubaneswar, Khurda, Odisha, 
+                India – 752050
               </p>
             </div>
             <div className="p-6 h-44 bg-purple-50 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1">

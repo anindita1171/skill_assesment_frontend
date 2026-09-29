@@ -2,26 +2,9 @@ import React from "react";
 
 const KeyStakeholders = () => {
   const stakeholders = [
-    {
-      name: "Ministry of Education",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr3qBVX4XIA8zq3LpBn64zAuOt9_IZ7_H5uA&s",
-    },
-    {
-      name: "National Examination Board",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa4xjShh4ynJbrgYrW_aB4lhKSxeMzQ3cO_A&s",
-    },
-    {
-      name: "Teachers Association",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLA994hpL3PMmq0scCuWOu0LGsjef49dyXVg&s",
-    },
-    {
-      name: "Educational Technology Institute",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr3qBVX4XIA8zq3LpBn64zAuOt9_IZ7_H5uA&s",
-    },
-    {
-      name: "Student Welfare Organization",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLA994hpL3PMmq0scCuWOu0LGsjef49dyXVg&s",
-    },
+    
+    
+    
     
   ];
 
@@ -29,11 +12,10 @@ const KeyStakeholders = () => {
     <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-          Our Key <span className="text-blue-600">Stakeholders</span>
+          <span className="text-blue-600"></span>
         </h2>
         <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
-          We're proud to collaborate with leading organizations in the education
-          sector to drive innovation and excellence in assessment.
+          
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {stakeholders.map((stakeholder, index) => (

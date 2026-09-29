@@ -7,31 +7,7 @@ import { Pagination, Navigation } from "swiper/modules";
 
 const NewsAndSchemes = () => {
   const newsItems = [
-    {
-      image:
-        "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5ld3N8ZW58MHx8MHx8fDA%3D",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Veritatis.",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5ld3N8ZW58MHx8MHx8fDA%3D",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Veritatis.",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5ld3N8ZW58MHx8MHx8fDA%3D",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Veritatis.",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5ld3N8ZW58MHx8MHx8fDA%3D",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Veritatis.",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fG5ld3N8ZW58MHx8MHx8fDA%3D",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Veritatis.",
-    },
+    
   ];
 
   return (

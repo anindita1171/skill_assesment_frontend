@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 export default function AboutUs() {
   return (
     <>
       <AboutUsSection />
-      <main className="flex-1 max-w-7xl mx-0.4 px-4 sm:px-6 lg:px-8">
+
+      {/* Main content centered properly */}
+      <main className="w-full">
         <ImageGallery />
         <OurTeam />
       </main>
@@ -20,47 +22,54 @@ function AboutUsSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="w-full py-16 bg-gradient-to-r from-blue-100 to-indigo-300 text-gray-900"
+        className="w-full"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl mb-6">
               About Our <span className="text-blue-600">Organization</span>
             </h1>
+
             <p className="text-xl md:text-2xl mb-8 text-gray-600 max-w-3xl mx-auto">
               Empowering organizations and individuals through innovative
               assessment solutions
             </p>
           </div>
-          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <AboutUsCard
               title="Our Mission"
-              description="To revolutionize the assessment industry by leveraging cutting-edge technology and expertise to deliver accurate, insightful, and actionable results."
+              description="To promote quality education, skill development, and competency-based learning through innovative approaches, industry collaboration, and technology-enabled assessment and certification."
               icon={<MissionIcon />}
             />
+
             <AboutUsCard
               title="Our Vision"
-              description="To be the global leader in assessment solutions, fostering growth and driving innovation across industries and organizations of all sizes."
+              description="To emerge as a globally recognized institution for skill-based education and assessment, empowering learners and professionals with relevant knowledge, practical competencies, and opportunities for sustainable growth."
               icon={<VisionIcon />}
             />
+
             <AboutUsCard
               title="Our Values"
-              description="Integrity, Innovation, Excellence, Collaboration, and Continuous Improvement guide everything we do."
+              description="Integrity, Excellence, Innovation, Inclusion, Collaboration, and Continuous Improvement guide our academic and professional practices and help us maintain a strong commitment to learners, industry, and society."
               icon={<ValuesIcon />}
             />
+
             <AboutUsCard
               title="Our Expertise"
-              description="With decades of combined experience, our team of experts brings unparalleled knowledge in psychometrics, data science, and organizational development."
+              description="With experienced academic professionals, trainers, assessors, and industry experts, Centurion University brings together expertise in education, vocational training, competency assessment, and workforce development."
               icon={<ExpertiseIcon />}
             />
+
             <AboutUsCard
               title="Our Approach"
-              description="We combine scientific rigor with practical application, ensuring our assessments are both valid and relevant to real-world challenges."
+              description="We combine academic knowledge with practical, industry-oriented learning. Our approach emphasizes competency, hands-on experience, technology, and quality assurance to ensure that learners develop skills that are relevant to real-world requirements."
               icon={<ApproachIcon />}
             />
+
             <AboutUsCard
               title="Our Impact"
-              description="We've helped thousands of organizations and individuals unlock their potential, leading to improved performance, satisfaction, and growth."
+              description="Through education, skill development, assessment, and certification, Centurion University works to empower individuals, strengthen employability, and support organizations in developing a capable and skilled workforce."
               icon={<ImpactIcon />}
             />
           </div>
@@ -69,30 +78,32 @@ function AboutUsSection() {
     </section>
   );
 }
+
 function AboutUsCard({ title, description, icon }) {
   return (
     <motion.div
-      className="bg-white bg-opacity-50 rounded-lg p-6 backdrop-filter backdrop-blur-lg"
-      whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
+      className="bg-white/50 rounded-lg p-6 backdrop-blur-lg"
+      whileHover={{
+        y: -5,
+        boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+      }}
       transition={{ duration: 0.3 }}
     >
       <div className="flex items-center mb-4">
         <div className="mr-4 text-yellow-600">{icon}</div>
         <h2 className="text-blue-600 text-2xl font-semibold">{title}</h2>
       </div>
+
       <p className="text-gray-600">{description}</p>
     </motion.div>
   );
 }
+
+/* ---------------- ICONS ---------------- */
+
 function MissionIcon() {
   return (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -105,13 +116,7 @@ function MissionIcon() {
 
 function VisionIcon() {
   return (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -130,13 +135,7 @@ function VisionIcon() {
 
 function ValuesIcon() {
   return (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -149,13 +148,7 @@ function ValuesIcon() {
 
 function ExpertiseIcon() {
   return (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -168,13 +161,7 @@ function ExpertiseIcon() {
 
 function ApproachIcon() {
   return (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -187,13 +174,7 @@ function ApproachIcon() {
 
 function ImpactIcon() {
   return (
-    <svg
-      className="w-8 h-8"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -203,68 +184,49 @@ function ImpactIcon() {
     </svg>
   );
 }
+
+/* ---------------- IMAGE GALLERY ---------------- */
+
 function ImageGallery() {
   const programs = [
-    {
-      name: "Leadership Assessment",
-      image:
-        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGVhZGVyc2hpcHxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      name: "Technical Skills Evaluation",
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVjaG5pY2FsJTIwc2tpbGxzfGVufDB8fDB8fHww",
-    },
-    {
-      name: "Soft Skills Development",
-      image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mdCUyMHNraWxsc3xlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-      name: "Career Aptitude Testing",
-      image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyZWVyfGVufDB8fDB8fHww",
-    },
-    {
-      name: "Team Building Workshops",
-      image:
-        "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbSUyMGJ1aWxkaW5nfGVufDB8fDB8fHww",
-    },
-    {
-      name: "Executive Coaching",
-      image:
-        "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZXhlY3V0aXZlJTIwY29hY2hpbmd8ZW58MHx8MHx8fDA%3D",
-    },
+    
+   
   ];
 
   return (
     <section className="w-full py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Centered container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
-          Our <span className="text-blue-600">Highlighted Programs</span>
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-10 text-center text-gray-800">
+           <span className="text-blue-600"></span>
         </h2>
+
         <motion.div
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, staggerChildren: 0.05 }}
+          transition={{ duration: 0.5 }}
         >
           {programs.map((program, index) => (
-            <div
+            <motion.div
               key={index}
-              className="relative overflow-hidden rounded-lg shadow-md cursor-pointer group"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.05 }}
+              className="relative overflow-hidden rounded-xl shadow-md cursor-pointer group"
             >
               <img
                 src={program.image}
                 alt={program.name}
                 className="object-cover w-full h-60 transition-transform duration-300 ease-in-out group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                <h3 className="text-white text-xl font-semibold text-center">
+
+              <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                <h3 className="text-white text-xl font-semibold text-center px-4">
                   {program.name}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
@@ -272,113 +234,119 @@ function ImageGallery() {
   );
 }
 
+/* ---------------- OUR TEAM ---------------- */
+
 function OurTeam() {
   const teamMembers = [
     {
-      name: "John Doe",
-      role: "CEO",
-      image: "https://randomuser.me/api/portraits/men/1.jpg",
+      name: "Partha Sarathi Mohanty",
+      role: "Head-Centre for Skill Certification",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "Jane Smith",
-      role: "CTO",
-      image: "https://randomuser.me/api/portraits/women/1.jpg",
+      name: "Monalisha Ghosh",
+      role: "National Coordinator",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "Mike Johnson",
-      role: "COO",
-      image: "https://randomuser.me/api/portraits/men/2.jpg",
+      name: "Rajib Lochan Patnaik",
+      role: "Manager Quality Assurance & Operation",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "Sarah Brown",
-      role: "Head of HR",
-      image: "https://randomuser.me/api/portraits/women/2.jpg",
+      name: "Pritam Mahapatra",
+      role: "Manager-Operation",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "David Lee",
-      role: "Lead Developer",
-      image: "https://randomuser.me/api/portraits/men/3.jpg",
+      name: "Subrat Sahu",
+      role: "Accountant",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "Emily Chen",
-      role: "UX Designer",
-      image: "https://randomuser.me/api/portraits/women/3.jpg",
+      name: "Priyadarshini Mangaraj",
+      role: "Assistant Manager-Standard",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "Alex Turner",
-      role: "Data Scientist",
-      image: "https://randomuser.me/api/portraits/men/4.jpg",
+      name: "Anindita Samal",
+      role: "IT-Executive",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "Lisa Wang",
-      role: "Marketing Manager",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+      name: "Deepam Jyoti Das",
+      role: "Assessment Coordinator",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
     {
-      name: "Tom Wilson",
-      role: "Sales Director",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
-    },
-    {
-      name: "Rachel Green",
-      role: "Customer Support Lead",
-      image: "https://randomuser.me/api/portraits/women/5.jpg",
-    },
-    {
-      name: "Chris Taylor",
-      role: "Financial Analyst",
-      image: "https://randomuser.me/api/portraits/men/6.jpg",
-    },
-    {
-      name: "Amanda White",
-      role: "Content Strategist",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
-    },
-    {
-      name: "Ryan Murphy",
-      role: "Product Manager",
-      image: "https://randomuser.me/api/portraits/men/7.jpg",
-    },
-    {
-      name: "Olivia Davis",
-      role: "Quality Assurance",
-      image: "https://randomuser.me/api/portraits/women/7.jpg",
-    },
-    {
-      name: "Daniel Kim",
-      role: "Business Development",
-      image: "https://randomuser.me/api/portraits/men/8.jpg",
+      name: "Sumit Kumar Parichha",
+      role: "Office Coordinator",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
   ];
 
   return (
     <section className="w-full py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-8 text-center text-gray-800">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-10 text-center text-gray-800">
           Our <span className="text-blue-600">Team</span>
         </h2>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, staggerChildren: 0.05 }}
-          className="grid grid-cols-3 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5"
+          transition={{ duration: 0.5 }}
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            md:grid-cols-3
+            lg:grid-cols-5
+            gap-x-6
+            gap-y-10
+            justify-items-center
+          "
         >
           {teamMembers.map((member, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex flex-col items-center"
+              transition={{ delay: index * 0.05 }}
+              className="flex flex-col items-center text-center w-full max-w-[180px]"
             >
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full mb-2 sm:mb-3 md:mb-4 object-cover"
+                className="
+                  w-24 h-24
+                  sm:w-28 sm:h-28
+                  md:w-32 md:h-32
+                  rounded-full
+                  mb-3
+                  object-cover
+                  border-4
+                  border-white
+                  shadow-md
+                "
               />
-              <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800">
+
+              <h3 className="text-sm sm:text-base font-semibold text-gray-800 leading-tight">
                 {member.name}
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600">{member.role}</p>
+
+              <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
+                {member.role}
+              </p>
             </motion.div>
           ))}
         </motion.div>
