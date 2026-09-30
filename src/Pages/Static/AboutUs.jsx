@@ -238,21 +238,23 @@ function ImageGallery() {
 
 function OurTeam() {
   const teamMembers = [
+
     {
-      name: "Partha Sarathi Mohanty",
+      name: "Prof. Supriya Pattanayak",
+      role: "Vice Chancellor",
+      image:
+        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
+    },
+    {
+      name: "Parthasarathi Mohanty",
       role: "Head-Centre for Skill Certification",
       image:
         "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
-    {
-      name: "Monalisha Ghosh",
-      role: "National Coordinator",
-      image:
-        "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
-    },
+    
     {
       name: "Rajib Lochan Patnaik",
-      role: "Manager Quality Assurance & Operation",
+      role: "Manager Quality Assurance & Standards",
       image:
         "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
@@ -270,7 +272,7 @@ function OurTeam() {
     },
     {
       name: "Priyadarshini Mangaraj",
-      role: "Assistant Manager-Standard",
+      role: "Assistant Manager-Standards",
       image:
         "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
     },
