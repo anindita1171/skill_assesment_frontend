@@ -15,68 +15,69 @@ export default function Partners() {
   const trainingPartners = [
     {
       name: "Training Partner 1",
-      description: "Description of the training partner and their offerings.",
+      description: "",
     },
     {
       name: "Training Partner 2",
-      description: "Description of the training partner and their offerings.",
+      description: "",
     },
     {
       name: "Training Partner 3",
-      description: "Description of the training partner and their offerings.",
+      description: "",
     },
     {
-      name: "Training Partner 3",
-      description: "Description of the training partner and their offerings.",
+      name: "Training Partner 4",
+      description: "",
     },
     {
-      name: "Training Partner 3",
-      description: "Description of the training partner and their offerings.",
+      name: "Training Partner 5",
+      description: "",
     },
     {
-      name: "Training Partner 3",
-      description: "Description of the training partner and their offerings.",
+      name: "Training Partner 6",
+      description: "",
     },
     {
-      name: "Training Partner 3",
-      description: "Description of the training partner and their offerings.",
+      name: "Training Partner 7",
+      description: "",
     },
     {
-      name: "Training Partner 3",
-      description: "Description of the training partner and their offerings.",
+      name: "Training Partner 8",
+      description: "",
     },
+    
   ];
 
   const assessmentAgencies = [
     {
       name: "I ASSESS Consultants LLP",
       description:
-        "Description of the agency and their role in the assessment process.",
+        "",
     },
     {
       name: "IRIS Corporate Solutions Pvt. Ltd.",
       description:
-        "Description of the agency and their role in the assessment process.",
+        "",
     },
     {
       name: "Merindyne Skills India Pvt. Ltd.",
       description:
-        "Description of the agency and their role in the assessment process.",
+        "",
     },
     {
       name: "MASCOT Upgradeskill and Knowledge Pvt. Ltd.",
       description:
-        "Description of the agency and their role in the assessment process.",
+        "",
     },
     {
       name: "Skill Mantra Edtech Consultant India Pvt. Ltd.",
       description:
-        "Description of the agency and their role in the assessment process.",
+        "",
     },
     {
       name: "Ginger Webs Pvt. Ltd.",
       description:
-        "Description of the agency and their role in the assessment process.",
+        "",
     },
   ];
 
@@ -317,24 +318,23 @@ function Testimonials() {
     <section className="bg-gradient-to-b from-green-100 to-green-50 w-full py-16 bg-gray-100">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4 text-gray-800">
-            Testimonials
-          </h2>
+        {/*  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-4 text-gray-800">
+             Testimonials
+          </h2> */}
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Hear from our satisfied clients and partners about their experiences
-            working with our assessment company.
+            
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           
           
           
-          <TestimonialCard
+      {/*    <TestimonialCard
             quote="Working with this assessment company has been a game-changer for our organization. Their expertise and innovative solutions have helped us unlock the full potential of our team."
             name="Jane Smith"
             title="HR Manager, Globex Inc."
             imageSrc="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8dHJhaW5pbmd8ZW58MHx8MHx8fDA%3D"
-          />
+          />*/}
         </div>
       </div>
     </section>
