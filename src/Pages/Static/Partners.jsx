@@ -14,37 +14,26 @@ export default function Partners() {
 
   const trainingPartners = [
     {
-      name: "Training Partner 1",
+      name: "Black Panther Guards and Services Pvt Ltd",
       description: "",
     },
     {
-      name: "Training Partner 2",
+      name: "Pramodini Educational and Charitable Trust",
       description: "",
     },
     {
-      name: "Training Partner 3",
+      name: "Distil Education and Technology Pvt Ltd",
       description: "",
     },
     {
-      name: "Training Partner 4",
+      name: "Gram Tarang Employability Training Services Pvt Ltd",
       description: "",
     },
     {
-      name: "Training Partner 5",
+      name: "NIAM Educational Foundation",
       description: "",
     },
-    {
-      name: "Training Partner 6",
-      description: "",
-    },
-    {
-      name: "Training Partner 7",
-      description: "",
-    },
-    {
-      name: "Training Partner 8",
-      description: "",
-    },
+    
     
   ];
 

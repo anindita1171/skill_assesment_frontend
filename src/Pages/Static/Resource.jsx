@@ -4,159 +4,198 @@ const qualifications = [
   {
     slNo: 1,
     name: "Paper Recycling Operator cum Technician",
-    image: "/qualifications/qualification-1.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-1.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-1.jpg",
   },
   {
     slNo: 2,
     name: "Transformer Manufacturing Engineer",
-    image: "/qualifications/qualification-2.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-2.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-2.jpg",
   },
   {
     slNo: 3,
     name: "Transformer Manufacturing Supervisor",
-    image: "/qualifications/qualification-3.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-3.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-3.jpg",
   },
   {
     slNo: 4,
     name: "Transformer Testing Supervisor",
-    image: "/qualifications/qualification-4.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-4.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-4.jpg",
   },
   {
     slNo: 5,
     name: "PCB NPI – Fabrication and Verification Specialist",
-    image: "/qualifications/qualification-5.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-5.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-5.jpg",
   },
   {
     slNo: 6,
     name: "Polyhouse Installation, Monitoring and Service Supervisor",
-    image: "/qualifications/qualification-6.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-6.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-6.jpg",
   },
   {
     slNo: 7,
     name: "Seed Production Supervisor",
-    image: "/qualifications/qualification-7.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-7.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-7.jpg",
   },
   {
     slNo: 8,
     name: "Fisheries Post Harvest Supervisor",
-    image: "/qualifications/qualification-8.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-8.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-8.jpg",
   },
   {
     slNo: 9,
     name: "Paper Recycling Supervisor",
-    image: "/qualifications/qualification-9.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-9.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-9.jpg",
   },
   {
     slNo: 10,
     name: "Milk Testing Facility Supervisor",
-    image: "/qualifications/qualification-10.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-10.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-10.jpg",
   },
   {
     slNo: 11,
     name: "Agriculture Value Addition Consultant",
-    image: "/qualifications/qualification-11.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-11.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-11.jpg",
   },
   {
     slNo: 12,
     name: "Crop and Plant Supervisor",
-    image: "/qualifications/qualification-12.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-12.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-12.jpg",
   },
   {
     slNo: 13,
     name: "Post-harvest Commodity Test and Storage Supervisor",
-    image: "/qualifications/qualification-13.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-13.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-13.jpg",
   },
   {
     slNo: 14,
     name: "Reverse Engineering and Additive Manufacturing QA Supervisor",
-    image: "/qualifications/qualification-14.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-14.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-14.jpg",
   },
   {
     slNo: 15,
     name: "Plastic Mold Design and Manufacturing Engineer",
-    image: "/qualifications/qualification-15.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-15.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-15.jpg",
   },
   {
     slNo: 16,
     name: "CNC Turning Programmer",
-    image: "/qualifications/qualification-16.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-16.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-16.jpg",
   },
   {
     slNo: 17,
     name: "CNC Milling Programmer",
-    image: "/qualifications/qualification-17.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-17.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-17.jpg",
   },
   {
     slNo: 18,
     name: "Remote Sensing Junior Analyst (Agriculture)",
-    image: "/qualifications/qualification-18.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-18.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-18.jpg",
   },
   {
     slNo: 19,
     name: "Aquaponics Cultivator",
-    image: "/qualifications/qualification-19.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-19.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-19.jpg",
   },
   {
     slNo: 20,
     name: "Pollinator Habitat Maker",
-    image: "/qualifications/qualification-20.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-20.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-20.jpg",
   },
   {
     slNo: 21,
     name: "Topiary Garden Artist",
-    image: "/qualifications/qualification-21.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-21.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-21.jpg",
   },
   {
     slNo: 22,
     name: "Seaweed Grower and Processor",
-    image: "/qualifications/qualification-22.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-22.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-22.jpg",
   },
   {
     slNo: 23,
     name: "Vermimanuring Technician",
-    image: "/qualifications/qualification-23.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-23.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-23.jpg",
   },
   {
     slNo: 24,
     name: "Soil & Water Conservation Supervisor",
-    image: "/qualifications/qualification-24.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-24.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-24.jpg",
   },
   {
     slNo: 25,
     name: "Smart Farming Supervisor",
-    image: "/qualifications/qualification-25.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-25.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-25.jpg",
   },
   {
     slNo: 26,
     name: "Advanced Farm Equipment Supervisor",
-    image: "/qualifications/qualification-26.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-26.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-26.jpg",
   },
   {
     slNo: 27,
     name: "Dairy Processing and Development Supervisor",
-    image: "/qualifications/qualification-27.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-27.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-27.jpg",
   },
   {
     slNo: 28,
     name: "Intensive Aquaculture Supervisor",
-    image: "/qualifications/qualification-28.jpg",
+    traineeHandbook: "/qualifications/trainee/qualification-28.jpg",
+    trainerHandbook: "/qualifications/trainer/qualification-28.jpg",
   },
 ];
 
 function Resource() {
-  const [selectedQualification, setSelectedQualification] = useState(null);
+  const [selectedHandbook, setSelectedHandbook] = useState(null);
+
+  const openHandbook = (qualification, type) => {
+    setSelectedHandbook({
+      qualification,
+      type,
+      image:
+        type === "trainee"
+          ? qualification.traineeHandbook
+          : qualification.trainerHandbook,
+    });
+  };
+
+  const closeHandbook = () => {
+    setSelectedHandbook(null);
+  };
 
   return (
     <section className="min-h-screen bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
         <div className="text-center mb-10">
-          <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">
-            Our Resources
-          </p>
-
-          <h1 className="mt-2 text-3xl sm:text-4xl font-bold text-slate-900">
+          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900">
             Qualification Handbooks
           </h1>
 
@@ -169,7 +208,7 @@ function Resource() {
         <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
 
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[900px]">
 
               {/* Table Header */}
               <thead>
@@ -183,8 +222,12 @@ function Resource() {
                     Qualification Name
                   </th>
 
-                  <th className="px-6 py-4 text-center text-sm font-semibold w-40">
-                    Handbook
+                  <th className="px-6 py-4 text-center text-sm font-semibold w-48">
+                    Trainee Handbook
+                  </th>
+
+                  <th className="px-6 py-4 text-center text-sm font-semibold w-48">
+                    Trainer Handbook
                   </th>
 
                 </tr>
@@ -204,22 +247,21 @@ function Resource() {
                       {qualification.slNo}
                     </td>
 
-                    {/* NAME */}
+                    {/* QUALIFICATION NAME */}
                     <td className="px-6 py-5">
                       <p className="font-medium text-slate-900">
                         {qualification.name}
                       </p>
                     </td>
 
-                    {/* VIEW PDF */}
+                    {/* TRAINEE HANDBOOK */}
                     <td className="px-6 py-5 text-center">
-
                       <button
                         onClick={() =>
-                          setSelectedQualification(qualification)
+                          openHandbook(qualification, "trainee")
                         }
                         className="inline-flex items-center gap-2 rounded-lg
-                                   bg-blue-600 px-4 py-2.5
+                                   bg-purple-600 px-4 py-2.5
                                    text-sm font-medium text-white
                                    hover:bg-blue-700
                                    transition-colors"
@@ -227,7 +269,23 @@ function Resource() {
                         View PDF
                         <span>↗</span>
                       </button>
+                    </td>
 
+                    {/* TRAINER HANDBOOK */}
+                    <td className="px-6 py-5 text-center">
+                      <button
+                        onClick={() =>
+                          openHandbook(qualification, "trainer")
+                        }
+                        className="inline-flex items-center gap-2 rounded-lg
+                                   bg-emerald-600 px-4 py-2.5
+                                   text-sm font-medium text-white
+                                   hover:bg-emerald-700
+                                   transition-colors"
+                      >
+                        View PDF
+                        <span>↗</span>
+                      </button>
                     </td>
 
                   </tr>
@@ -239,49 +297,58 @@ function Resource() {
         </div>
       </div>
 
-      {/* IMAGE MODAL */}
-      {selectedQualification && (
+      {/* HANDBOOK MODAL */}
+      {selectedHandbook && (
         <div
           className="fixed inset-0 z-50 bg-black/70
                      flex items-center justify-center p-4"
-          onClick={() => setSelectedQualification(null)}
+          onClick={closeHandbook}
         >
 
           <div
             className="relative bg-white rounded-2xl
-                       max-w-4xl w-full max-h-[90vh]
-                       overflow-auto p-4"
+                       max-w-5xl w-full max-h-[90vh]
+                       overflow-auto p-4 sm:p-6"
             onClick={(e) => e.stopPropagation()}
           >
 
             {/* Close Button */}
             <button
-              onClick={() => setSelectedQualification(null)}
+              onClick={closeHandbook}
               className="absolute top-3 right-3 z-10
                          flex items-center justify-center
                          w-9 h-9 rounded-full
                          bg-slate-900 text-white
                          hover:bg-red-600 transition"
+              aria-label="Close"
             >
               ×
             </button>
 
-            {/* Title */}
-            <div className="pr-12 mb-4">
+            {/* Modal Title */}
+            <div className="pr-12 mb-5">
+
               <p className="text-sm text-blue-600 font-medium">
-                Qualification {selectedQualification.slNo}
+                Qualification {selectedHandbook.qualification.slNo}
               </p>
 
-              <h2 className="text-xl font-bold text-slate-900">
-                {selectedQualification.name}
+              <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+                {selectedHandbook.qualification.name}
               </h2>
+
+              <p className="mt-1 text-sm font-medium text-slate-500">
+                {selectedHandbook.type === "trainee"
+                  ? "Trainee Handbook"
+                  : "Trainer Handbook"}
+              </p>
+
             </div>
 
-            {/* Image */}
+            {/* Handbook Image */}
             <img
-              src={selectedQualification.image}
-              alt={selectedQualification.name}
-              className="w-full h-auto rounded-lg"
+              src={selectedHandbook.image}
+              alt={`${selectedHandbook.type} handbook - ${selectedHandbook.qualification.name}`}
+              className="w-full h-auto rounded-lg border border-slate-200"
             />
 
           </div>
