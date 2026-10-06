@@ -29,21 +29,21 @@ function FeaturesSection() {
           />
           <FeatureCard
             image={govt}
-            number="50+"
+            number="5+"
             title="Government Projects"
-            description="Working with 50+ government projects and organizations"
+            description="Working with 5+ government projects and organizations"
           />
           <FeatureCard
             image={traningpartner}
-            number="10+"
+            number="5"
             title="Training Partners"
-            description="We have 10+ Training Partners with us"
+            description="We have 5 Training Partners with us"
           />
           <FeatureCard
             image={assesmentagencies}
-            number="10+"
+            number="6"
             title="Assignment Partners"
-            description="We have 10+ Assignment agencies with us"
+            description="We have 6 Assignment agencies with us"
           />
         </div>
       </div>
