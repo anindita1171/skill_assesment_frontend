@@ -16,6 +16,10 @@ const LoginForm = () => {
       registerAllowed: true,
     },
     {
+      name: "TOA Login",
+      registerAllowed: false,
+    },
+    {
       name: "Assessment Agency",
       registerAllowed: true,
     },
@@ -26,7 +30,14 @@ const LoginForm = () => {
   ];
 
   const handleAction = async () => {
-    if (!selectedOption) return;
+    if (!selectedOption || isRedirecting) return;
+
+    // TOA has its own login and registration page.
+    // Redirect directly without using the existing login flow.
+    if (selectedOption === "TOA Login") {
+      navigate("/toa");
+      return;
+    }
 
     setIsRedirecting(true);
 
@@ -100,17 +111,9 @@ const LoginForm = () => {
         </p>
 
         <div className="mt-8 space-y-4">
-          <div className="flex items-center gap-3">
-            
-          </div>
-
-          <div className="flex items-center gap-3">
-            
-          </div>
-
-          <div className="flex items-center gap-3">
-            
-          </div>
+          <div className="flex items-center gap-3"></div>
+          <div className="flex items-center gap-3"></div>
+          <div className="flex items-center gap-3"></div>
         </div>
       </div>
 
@@ -118,7 +121,6 @@ const LoginForm = () => {
       <div className="w-full lg:w-1/2 p-8 sm:p-10 lg:p-12 flex flex-col justify-center items-center">
         {!roleSelected ? (
           <>
-            {/* Choose Role */}
             <h3 className="text-3xl font-bold mb-3 text-indigo-600 text-center">
               Choose Role
             </h3>
@@ -128,7 +130,7 @@ const LoginForm = () => {
             </p>
 
             {/* Role Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full max-w-4xl mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full max-w-2xl mb-8">
               {roles.map((role) => (
                 <motion.div
                   key={role.name}
@@ -159,105 +161,108 @@ const LoginForm = () => {
           </>
         ) : (
           <>
-            {/* Selected Role Heading */}
             <h3 className="text-2xl sm:text-3xl font-bold mb-5 text-indigo-600 text-center">
-              {isRegistering ? (
+              {selectedOption === "TOA Login" ? (
+                <div>
+                  Welcome to <span className="text-green-700">TOA Portal</span>
+                </div>
+              ) : isRegistering ? (
                 <div>
                   Join Our Platform as{" "}
-                  <span className="text-green-700">
-                    {selectedOption}
-                  </span>
+                  <span className="text-green-700">{selectedOption}</span>
                 </div>
               ) : (
                 <div>
                   Login to{" "}
-                  <span className="text-red-700">
-                    {selectedOption}
-                  </span>{" "}
+                  <span className="text-red-700">{selectedOption}</span>{" "}
                   Dashboard
                 </div>
               )}
             </h3>
 
-            <p className="mb-6 text-lg text-gray-600 text-center">
-              {isRegistering
-                ? "Choose your registration type:"
-                : "Select your account type:"}
-            </p>
-
-            {/* Toggle Register/Login */}
-            <div className="mt-2 mb-6 text-center">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className={`font-semibold transition ${
-                  selectedOption === "SNA"
-                    ? "text-gray-400 cursor-not-allowed"
-                    : "text-indigo-600 hover:underline"
-                }`}
-                onClick={() => {
-                  if (selectedOption !== "SNA") {
-                    setIsRegistering(!isRegistering);
-                  }
-                }}
-                disabled={selectedOption === "SNA"}
-              >
-                {isRegistering
-                  ? "Switch to Login"
-                  : "Switch to Register"}
-              </motion.button>
-
-              {selectedOption === "SNA" && (
-                <p className="text-sm text-gray-400 mt-2">
-                  Registration is not available for SNA.
+            {selectedOption === "TOA Login" ? (
+              <>
+                <p className="mb-6 text-lg text-gray-600 text-center">
+                  Continue to the separate TOA login portal.
                 </p>
-              )}
-            </div>
 
-            {/* Action Button */}
-            <motion.button
-              whileHover={
-                !isRedirecting
-                  ? {
-                      scale: 1.02,
-                    }
-                  : {}
-              }
-              whileTap={
-                !isRedirecting
-                  ? {
-                      scale: 0.98,
-                    }
-                  : {}
-              }
-              className={`w-full max-w-md py-3 px-8 bg-indigo-600 text-white rounded-xl font-bold text-lg transition duration-300 ${
-                !selectedOption || isRedirecting
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:bg-indigo-700"
-              }`}
-              disabled={!selectedOption || isRedirecting}
-              onClick={handleAction}
-            >
-              {isRedirecting
-                ? "Redirecting..."
-                : isRegistering
-                ? "Register Now"
-                : "Login Now"}
-            </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full max-w-md py-3 px-8 bg-indigo-600 text-white rounded-xl font-bold text-lg transition duration-300 hover:bg-indigo-700"
+                  onClick={handleAction}
+                >
+                  Open TOA Portal
+                </motion.button>
+              </>
+            ) : (
+              <>
+                <p className="mb-6 text-lg text-gray-600 text-center">
+                  {isRegistering
+                    ? "Choose your registration type:"
+                    : "Select your account type:"}
+                </p>
+
+                {/* Toggle Register/Login */}
+                <div className="mt-2 mb-6 text-center">
+                  <motion.button
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    className={`font-semibold transition ${
+                      selectedOption === "SNA"
+                        ? "text-gray-400 cursor-not-allowed"
+                        : "text-indigo-600 hover:underline"
+                    }`}
+                    onClick={() => {
+                      if (selectedOption !== "SNA") {
+                        setIsRegistering(!isRegistering);
+                      }
+                    }}
+                    disabled={selectedOption === "SNA"}
+                  >
+                    {isRegistering
+                      ? "Switch to Login"
+                      : "Switch to Register"}
+                  </motion.button>
+
+                  {selectedOption === "SNA" && (
+                    <p className="text-sm text-gray-400 mt-2">
+                      Registration is not available for SNA.
+                    </p>
+                  )}
+                </div>
+
+                {/* Action Button */}
+                <motion.button
+                  whileHover={!isRedirecting ? { scale: 1.02 } : {}}
+                  whileTap={!isRedirecting ? { scale: 0.98 } : {}}
+                  className={`w-full max-w-md py-3 px-8 bg-indigo-600 text-white rounded-xl font-bold text-lg transition duration-300 ${
+                    isRedirecting
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-indigo-700"
+                  }`}
+                  disabled={isRedirecting}
+                  onClick={handleAction}
+                >
+                  {isRedirecting
+                    ? "Redirecting..."
+                    : isRegistering
+                    ? "Register Now"
+                    : "Login Now"}
+                </motion.button>
+              </>
+            )}
 
             {/* Back to Role Selection */}
             <motion.button
-              whileHover={{
-                scale: 1.03,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               className="mt-5 text-indigo-600 font-semibold hover:underline"
               onClick={() => {
                 setRoleSelected(false);
                 setSelectedOption(null);
                 setIsRegistering(false);
+                setIsRedirecting(false);
               }}
             >
               ← Back to Role Selection

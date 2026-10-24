@@ -1,4 +1,8 @@
 /* eslint-disable no-unused-vars */
+import TOAAdminDashboard from "./Pages/TOA/TOAAdminDashboard";
+import TOAHome from "./Pages/TOA/TOAHome";
+import TPDashboard from "./Pages/TOA/TPDashboard";
+import ProtectedTOARoute from "./Pages/TOA/ProtectedTOARoute";
 import React, { useEffect } from "react";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import { Route, Routes, useLocation } from "react-router-dom";
@@ -173,6 +177,25 @@ const App = () => {
           <Route path="contact" element={<ContactUs />} />
           <Route path="portal" element={<PortalLogin />} />
         </Route>
+
+        
+{/* TOA Portal Routes */}
+
+<Route path="/toa" element={<TOAHome />} />
+
+<Route
+  path="/toa/admin-dashboard"
+  element={<TOAAdminDashboard />}
+/>
+
+<Route element={<ProtectedTOARoute />}>
+  <Route
+    path="/toa/tp-dashboard"
+    element={<TPDashboard />}
+  />
+</Route>
+
+
 
         {/* Admin routs... */}
         <Route path="/adminLogin" exact element={<AdminLogin />} />
