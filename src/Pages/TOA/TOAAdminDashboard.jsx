@@ -2,7 +2,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5001/api/toa/admin";
+//const API_URL = "http://localhost:5001/api/toa/admin";
+
+const API_URL = "/api/toa/admin";
 
 const statusStyles = {
   Pending: "bg-yellow-100 text-yellow-800",

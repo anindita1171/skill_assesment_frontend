@@ -23,8 +23,8 @@ const TOAHome = () => {
     const isAdmin = selectedLogin === "admin";
 
     const loginUrl = isAdmin
-      ? "http://localhost:5001/api/toa/admin/login"
-      : "http://localhost:5001/api/toa/tp/login";
+  ? "/api/toa/admin/login"
+  : "/api/toa/tp/login";
 
     try {
       const response = await fetch(loginUrl, {

@@ -1,10 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:5001/api/toa/batches";
-const ASSESSOR_API = "http://localhost:5001/api/toa/assessors";
+//const API_URL = "http://localhost:5001/api/toa/batches";
+//const ASSESSOR_API = "http://localhost:5001/api/toa/assessors";
+
+const API_URL = "/api/toa/batches";
+const ASSESSOR_API = "/api/toa/assessors";
 
 const initialAssessorForm = {
+  batchId: "",
   fullName: "",
   fatherName: "",
   motherName: "",
@@ -16,7 +20,7 @@ const initialAssessorForm = {
   experienceYears: "",
   specialization: "",
   address: "",
-  idProofDetails: "",
+  idProofDetails: "Aadhar",
   aadhaar: "",
 };
 
@@ -58,6 +62,7 @@ const TPDashboard = () => {
   const [batches, setBatches] = useState([]);
   const [loadingBatches, setLoadingBatches] = useState(true);
   const [creatingBatch, setCreatingBatch] = useState(false);
+  const [submittingBatchId, setSubmittingBatchId] = useState("");
   const [assessors, setAssessors] = useState([]);
   const [loadingAssessors, setLoadingAssessors] = useState(false);
   const [submittingAssessor, setSubmittingAssessor] = useState(false);
@@ -65,8 +70,12 @@ const TPDashboard = () => {
   const [assessorForm, setAssessorForm] = useState(initialAssessorForm);
   const [qualificationFiles, setQualificationFiles] = useState(initialQualificationFiles);
   const [photograph, setPhotograph] = useState(null);
+  const [aadhaarPdf, setAadhaarPdf] = useState(null);
+const [experienceCertificate, setExperienceCertificate] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [selectedAssessor, setSelectedAssessor] = useState(null);
+const [showAssessorDetails, setShowAssessorDetails] = useState(false);
 
   const menuItems = [
     "Dashboard",
@@ -152,8 +161,12 @@ const TPDashboard = () => {
   }, []);
 
   useEffect(() => {
-    if (activePage === "Manage Assessors") fetchAssessors();
-  }, [activePage, fetchAssessors]);
+  if (activePage === "Manage Assessors") {
+    fetchBatches();
+    fetchAssessors();
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [activePage, fetchAssessors]);
 
   const handleCreateBatch = async () => {
     const token = localStorage.getItem("toa_tp_token");
@@ -194,6 +207,77 @@ const TPDashboard = () => {
       setErrorMessage(error.message || "Unable to connect to the TOA backend.");
     } finally {
       setCreatingBatch(false);
+    }
+  };
+
+  const handleSubmitBatch = async (batch) => {
+    const token = localStorage.getItem("toa_tp_token");
+    if (!token) {
+      handleUnauthorized();
+      return;
+    }
+
+    const batchId = batch._id || batch.id;
+    if (!batchId) {
+      setErrorMessage("Invalid batch ID. Please refresh the batch list.");
+      return;
+    }
+
+    if (!["Draft", "Pending"].includes(batch.status)) {
+      setErrorMessage("This batch has already been submitted or cannot be submitted.");
+      return;
+    }
+
+    const actualAssessorCount = assessors.filter(
+      (assessor) => String(assessor.batchId || "") === String(batchId)
+    ).length;
+
+    if (actualAssessorCount < 1) {
+      setErrorMessage("Please register at least one assessor for this batch before confirming it.");
+      return;
+    }
+
+    const confirmed = window.confirm(
+      `Are you sure you want to submit ${batch.batchCode} for admin review? You will not be able to add assessors after submission.`
+    );
+    if (!confirmed) return;
+
+    setSubmittingBatchId(String(batchId));
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    try {
+      const response = await fetch(
+        `${API_URL}/${encodeURIComponent(batchId)}/submit`,
+        {
+          method: "PATCH",
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      const data = await response.json();
+
+      if (response.status === 401 || response.status === 403) {
+        handleUnauthorized();
+        return;
+      }
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || "Unable to submit the batch.");
+      }
+
+      const updatedBatch = data.updatedBatch || data.batch || data.updated || {};
+      setBatches((previous) =>
+        previous.map((item) =>
+          String(item._id || item.id) === String(batchId)
+            ? { ...item, ...updatedBatch, status: "Submitted" }
+            : item
+        )
+      );
+      setSuccessMessage(`${batch.batchCode} has been submitted successfully for admin review.`);
+      await Promise.all([fetchBatches(), fetchAssessors()]);
+    } catch (error) {
+      setErrorMessage(error.message || "Unable to submit the batch.");
+    } finally {
+      setSubmittingBatchId("");
     }
   };
 
@@ -239,6 +323,33 @@ const TPDashboard = () => {
       return;
     }
 
+    if (!aadhaarPdf) {
+  setErrorMessage("Please upload the Aadhaar Card PDF.");
+  return;
+}
+
+if (aadhaarPdf.type !== "application/pdf") {
+  setErrorMessage("Aadhaar Card must be a PDF file.");
+  return;
+}
+
+if (aadhaarPdf.size > 5 * 1024 * 1024) {
+  setErrorMessage("Aadhaar Card PDF must be 5 MB or smaller.");
+  return;
+}
+
+if (experienceCertificate) {
+  if (experienceCertificate.type !== "application/pdf") {
+    setErrorMessage("Experience Certificate must be a PDF file.");
+    return;
+  }
+
+  if (experienceCertificate.size > 5 * 1024 * 1024) {
+    setErrorMessage("Experience Certificate PDF must be 5 MB or smaller.");
+    return;
+  }
+}
+
     const allowedCertificateTypes = ["application/pdf", "image/jpeg", "image/png"];
     for (const document of requiredDocuments) {
       const file = qualificationFiles[document.field];
@@ -266,6 +377,13 @@ const TPDashboard = () => {
     try {
       const formData = new FormData();
       Object.entries(assessorForm).forEach(([key, value]) => formData.append(key, value));
+
+      formData.append("aadhaarPdf", aadhaarPdf);
+
+if (experienceCertificate) {
+  formData.append("experienceCertificate", experienceCertificate);
+}
+
       requiredDocuments.forEach((document) => {
         formData.append(document.field, qualificationFiles[document.field]);
       });
@@ -455,6 +573,37 @@ const TPDashboard = () => {
                 </p>
 
                 <div className="grid gap-5 sm:grid-cols-2">
+                  <div className="sm:col-span-2">
+  <label className={labelClass}>Select Batch *</label>
+
+  <select
+    name="batchId"
+    value={assessorForm.batchId}
+    onChange={handleAssessorInput}
+    className={inputClass}
+    required
+  >
+    <option value="">Select a batch</option>
+
+    {batches
+      .filter((batch) =>
+        ["Pending", "Draft"].includes(batch.status)
+      )
+      .map((batch) => (
+        <option
+          key={batch._id || batch.id}
+          value={batch._id || batch.id}
+        >
+          {batch.batchCode} — {batch.batchName}
+        </option>
+      ))}
+  </select>
+
+  <p className="mt-1 text-xs text-gray-500">
+    Select the batch to which this assessor will be assigned.
+    Only batches that have not been submitted are available.
+  </p>
+</div>
                   <div><label className={labelClass}>Full Name *</label><input name="fullName" value={assessorForm.fullName} onChange={handleAssessorInput} className={inputClass} required /></div>
                   <div><label className={labelClass}>Father's Name *</label><input name="fatherName" value={assessorForm.fatherName} onChange={handleAssessorInput} className={inputClass} required /></div>
                   <div><label className={labelClass}>Mother's Name *</label><input name="motherName" value={assessorForm.motherName} onChange={handleAssessorInput} className={inputClass} required /></div>
@@ -471,8 +620,54 @@ const TPDashboard = () => {
                   </div>
                   <div><label className={labelClass}>Experience (years) *</label><input name="experienceYears" type="number" min="0" max="70" step="0.5" value={assessorForm.experienceYears} onChange={handleAssessorInput} className={inputClass} required /></div>
                   <div><label className={labelClass}>Trade / Job-Role Specialization *</label><input name="specialization" value={assessorForm.specialization} onChange={handleAssessorInput} placeholder="Enter trade or job role" className={inputClass} required /></div>
-                  <div><label className={labelClass}>ID Proof Details *</label><input name="idProofDetails" value={assessorForm.idProofDetails} onChange={handleAssessorInput} placeholder="ID proof type and reference details" className={inputClass} required /></div>
+                  <div>
+  <label className={labelClass}>ID Proof Details</label>
+  <input
+    name="idProofDetails"
+    value="Aadhaar"
+    readOnly
+    className={`${inputClass} bg-gray-100`}
+  />
+</div>
                   <div><label className={labelClass}>Aadhaar Number *</label><input name="aadhaar" type="password" inputMode="numeric" pattern="[0-9]{12}" maxLength={12} autoComplete="off" value={assessorForm.aadhaar} onChange={handleAssessorInput} placeholder="12-digit Aadhaar number" className={inputClass} required /><p className="mt-1 text-xs text-gray-500">Hidden while typing. Only the last four digits should be stored by the backend.</p></div>
+
+
+<div>
+  <label className={labelClass}>Aadhaar Card PDF *</label>
+  <input
+    type="file"
+    accept="application/pdf,.pdf"
+    onChange={(event) =>
+      setAadhaarPdf(event.target.files?.[0] || null)
+    }
+    className={inputClass}
+    required
+  />
+  <p className="mt-1 text-xs text-gray-500">
+    Upload the assessor's Aadhaar document in PDF format. Maximum size: 5 MB.
+  </p>
+</div>
+
+<div>
+  <label className={labelClass}>
+    Experience Certificate PDF (Optional)
+  </label>
+  <input
+    type="file"
+    accept="application/pdf,.pdf"
+    onChange={(event) =>
+      setExperienceCertificate(event.target.files?.[0] || null)
+    }
+    className={inputClass}
+  />
+  <p className="mt-1 text-xs text-gray-500">
+    Upload an experience certificate if available. Maximum size: 5 MB.
+  </p>
+</div>
+
+
+
+
                   <div className="sm:col-span-2"><label className={labelClass}>Full Address *</label><textarea name="address" rows={3} value={assessorForm.address} onChange={handleAssessorInput} className={inputClass} required /></div>
 
                   <div className="sm:col-span-2">
@@ -508,33 +703,374 @@ const TPDashboard = () => {
               {loadingAssessors ? <p className="mt-5 text-gray-500">Loading assessor applications...</p> : assessors.length === 0 ? (
                 <div className="mt-5 rounded-lg border border-dashed border-gray-300 p-8 text-center"><p className="font-medium text-gray-700">No assessor applications found.</p><p className="mt-2 text-sm text-gray-500">Select Register New Assessor to submit your first application.</p></div>
               ) : (
-                <div className="mt-5 space-y-4">
-                  {assessors.map((assessor) => (
-                    <div key={assessor._id || assessor.id} className="rounded-xl border border-gray-200 p-5">
-                      <div className="flex flex-wrap items-start justify-between gap-3">
-                        <div><h4 className="text-lg font-semibold text-gray-800">{assessor.fullName}</h4><p className="mt-1 text-sm text-gray-500">Assessor ID: {assessor.assessorId || "Not assigned"}</p><p className="mt-1 text-sm text-gray-500">Qualification: {assessor.qualification || "Not provided"}</p><p className="mt-1 text-sm text-gray-500">Specialization: {assessor.specialization || "Not provided"}</p></div>
-                        <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusStyles[assessor.status] || "bg-gray-100 text-gray-700"}`}>{assessor.status || "Pending"}</span>
-                      </div>
-                      <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                        <p className="break-words text-sm text-gray-600"><span className="font-medium">Email: </span>{assessor.email}</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Mobile: </span>{assessor.mobile}</p>
-                      </div>
-                      {assessor.qualificationCertificatesUploaded && (
-                        <div className="mt-4 rounded-lg bg-gray-50 p-3"><p className="text-sm font-semibold text-gray-700">Uploaded certificates</p><div className="mt-2 flex flex-wrap gap-2 text-xs">{Object.entries({ "10th": "tenth", "12th": "twelfth", Graduation: "graduation", "Post Graduation": "postGraduation", PhD: "phd" }).filter(([, key]) => assessor.qualificationCertificatesUploaded[key]).map(([label]) => <span key={label} className="rounded-full bg-green-100 px-2 py-1 text-green-800">{label} uploaded</span>)}</div></div>
-                      )}
-                      {assessor.adminRemarks && <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4"><p className="text-sm font-semibold text-red-800">Admin Remarks</p><p className="mt-1 whitespace-pre-wrap text-sm text-red-700">{assessor.adminRemarks}</p></div>}
-                      {assessor.status === "Not Approved" && <p className="mt-3 text-sm text-gray-600">Please review the admin remarks. Resubmission requires a separate backend endpoint to be enabled.</p>}
-                    </div>
-                  ))}
+                
+<div className="mt-5 space-y-6">
+  {batches.map((batch) => {
+    const batchId = String(batch._id || batch.id || "");
+
+    const batchAssessors = assessors.filter((assessor) => {
+      const assessorBatchId =
+        assessor.batchId?._id ||
+        assessor.batchId?.id ||
+        assessor.batchId;
+
+      return String(assessorBatchId || "") === batchId;
+    });
+
+    return (
+      <div
+        key={batchId}
+        className="overflow-hidden rounded-xl border border-gray-200"
+      >
+        {/* Batch heading and total assessor count */}
+        <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-50 p-5">
+          <div>
+            <h4 className="text-lg font-bold text-slate-800">
+              {batch.batchCode || "Batch"}
+            </h4>
+            <p className="mt-1 text-sm text-gray-600">
+              Batch Name: {batch.batchName || "RailTel"}
+            </p>
+          </div>
+
+          <span className="rounded-full bg-indigo-100 px-3 py-1.5 text-sm font-semibold text-indigo-800">
+            {batchAssessors.length}{" "}
+            {batchAssessors.length === 1 ? "Assessor" : "Assessors"}
+          </span>
+        </div>
+
+        {/* Assessor details for this batch */}
+        <div className="space-y-4 p-5">
+          {batchAssessors.length === 0 ? (
+            <p className="rounded-lg border border-dashed border-gray-300 p-4 text-sm text-gray-500">
+              No assessors have been added to this batch yet.
+            </p>
+          ) : (
+            batchAssessors.map((assessor) => (
+              <div
+                key={assessor._id || assessor.id}
+                className="rounded-xl border border-gray-200 p-5"
+              >
+                
+                  
+<div className="flex flex-wrap items-start justify-between gap-3">
+  <div>
+    <h4 className="text-lg font-semibold text-gray-800">
+      {assessor.fullName}
+    </h4>
+
+    <p className="mt-1 text-sm text-gray-500">
+      Assessor ID: {assessor.assessorId || "Not assigned"}
+    </p>
+
+    <p className="mt-1 text-sm text-gray-500">
+      Qualification: {assessor.qualification || "Not provided"}
+    </p>
+
+    <p className="mt-1 text-sm text-gray-500">
+      Specialization: {assessor.specialization || "Not provided"}
+    </p>
+  </div>
+
+  <div className="flex flex-wrap items-center gap-2">
+    <span
+      className={`rounded-full px-3 py-1 text-xs font-semibold ${
+        statusStyles[assessor.status] ||
+        "bg-gray-100 text-gray-700"
+      }`}
+    >
+      {assessor.status || "Pending"}
+    </span>
+
+    <button
+      type="button"
+      onClick={() => {
+        setSelectedAssessor(assessor);
+        setShowAssessorDetails(true);
+      }}
+      className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700"
+    >
+      View Details
+    </button>
+  </div>
+</div>
+
+                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                  <p className="break-words text-sm text-gray-600">
+                    <span className="font-medium">Email: </span>
+                    {assessor.email}
+                  </p>
+
+                  <p className="text-sm text-gray-600">
+                    <span className="font-medium">Mobile: </span>
+                    {assessor.mobile}
+                  </p>
                 </div>
+
+                {assessor.qualificationCertificatesUploaded && (
+                  <div className="mt-4 rounded-lg bg-gray-50 p-3">
+                    <p className="text-sm font-semibold text-gray-700">
+                      Uploaded certificates
+                    </p>
+
+                    <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                      {Object.entries({
+                        "10th": "tenth",
+                        "12th": "twelfth",
+                        Graduation: "graduation",
+                        "Post Graduation": "postGraduation",
+                        PhD: "phd",
+                      })
+                        .filter(
+                          ([, key]) =>
+                            assessor.qualificationCertificatesUploaded[key]
+                        )
+                        .map(([label]) => (
+                          <span
+                            key={label}
+                            className="rounded-full bg-green-100 px-2 py-1 text-green-800"
+                          >
+                            {label} uploaded
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                )}
+
+                {assessor.adminRemarks && (
+                  <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4">
+                    <p className="text-sm font-semibold text-red-800">
+                      Admin Remarks
+                    </p>
+                    <p className="mt-1 whitespace-pre-wrap text-sm text-red-700">
+                      {assessor.adminRemarks}
+                    </p>
+                  </div>
+                )}
+
+                {assessor.status === "Not Approved" && (
+                  <p className="mt-3 text-sm text-gray-600">
+                    Please review the admin remarks. Resubmission requires a
+                    separate backend endpoint to be enabled.
+                  </p>
+                )}
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    );
+  })}
+</div>
+
               )}
             </div>
           </div>
         )}
 
-        {! ["Dashboard", "Create Batch", "Manage Assessors"].includes(activePage) && (
+        {activePage === "Batch Confirmation" && (
+          <div className="rounded-xl bg-white p-6 shadow-sm">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 className="text-xl font-semibold text-slate-800">Batch Confirmation</h3>
+                <p className="mt-1 text-sm text-gray-500">Review the registered assessor count, then submit each batch to the admin for review.</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => { Promise.all([fetchBatches(), fetchAssessors()]); }}
+                disabled={loadingBatches || loadingAssessors || Boolean(submittingBatchId)}
+                className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+              >
+                {loadingBatches || loadingAssessors ? "Refreshing..." : "Refresh"}
+              </button>
+            </div>
+
+            {loadingBatches || loadingAssessors ? (
+              <p className="mt-5 text-gray-500">Loading batches and assessor counts...</p>
+            ) : batches.length === 0 ? (
+              <div className="mt-5 rounded-lg border border-dashed border-gray-300 p-8 text-center">
+                <p className="font-medium text-gray-700">No batches found.</p>
+                <p className="mt-2 text-sm text-gray-500">Create a batch first, then register at least one assessor before confirming it.</p>
+              </div>
+            ) : (
+              <div className="mt-5 overflow-x-auto">
+                <table className="w-full border-collapse text-left text-sm">
+                  <thead>
+                    <tr className="border-b bg-gray-50">
+                      <th className="p-3">Batch Code</th>
+                      <th className="p-3">Batch Name</th>
+                      <th className="p-3">Registered Assessors</th>
+                      <th className="p-3">Status</th>
+                      <th className="p-3">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {batches.map((batch) => {
+                      const batchId = batch._id || batch.id;
+                      const assessorCount = assessors.filter(
+                        (assessor) => String(assessor.batchId || "") === String(batchId)
+                      ).length;
+                      const canSubmit = ["Draft", "Pending"].includes(batch.status);
+                      const statusClass =
+                        batch.status === "Submitted" ? "bg-blue-100 text-blue-800" :
+                        batch.status === "Approved" ? "bg-green-100 text-green-800" :
+                        batch.status === "Correction Required" ? "bg-red-100 text-red-800" :
+                        batch.status === "Under Review" ? "bg-purple-100 text-purple-800" :
+                        "bg-amber-100 text-amber-800";
+
+                      return (
+                        <tr key={batchId} className="border-b last:border-0">
+                          <td className="p-3 font-semibold text-slate-800">{batch.batchCode || "—"}</td>
+                          <td className="p-3">{batch.batchName || "RailTel"}</td>
+                          <td className="p-3">
+                            <span className={assessorCount > 0 ? "font-semibold text-green-700" : "font-semibold text-amber-700"}>
+                              {assessorCount}
+                            </span>
+                          </td>
+                          <td className="p-3">
+                            <span className={`whitespace-nowrap rounded-full px-3 py-1 text-xs font-semibold ${statusClass}`}>
+                              {batch.status || "Pending"}
+                            </span>
+                          </td>
+                          <td className="p-3">
+                            {canSubmit ? (
+                              <button
+                                type="button"
+                                onClick={() => handleSubmitBatch(batch)}
+                                disabled={assessorCount < 1 || submittingBatchId === String(batchId)}
+                                title={assessorCount < 1 ? "Register at least one assessor before submitting this batch" : "Submit batch for admin review"}
+                                className="whitespace-nowrap rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-40"
+                              >
+                                {submittingBatchId === String(batchId) ? "Submitting..." : "Confirm Batch"}
+                              </button>
+                            ) : batch.status === "Submitted" || batch.status === "Under Review" ? (
+                              <span className="whitespace-nowrap text-sm font-medium text-blue-700">Submitted for review</span>
+                            ) : batch.status === "Approved" ? (
+                              <span className="text-sm font-medium text-green-700">Approved</span>
+                            ) : (
+                              <span className="text-sm text-gray-500">No action available</span>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        )}
+
+        {! ["Dashboard", "Create Batch", "Manage Assessors", "Batch Confirmation"].includes(activePage) && (
           <div className="rounded-xl bg-white p-6 shadow-sm"><h3 className="text-lg font-semibold text-slate-800">{activePage}</h3><p className="mt-2 text-gray-600">This section will be implemented in the next stage.</p></div>
         )}
+  {/* Assessor Details Popup */}
+        {showAssessorDetails && selectedAssessor && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+            <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white shadow-xl">
+              <div className="flex items-center justify-between border-b p-5">
+                <div>
+                  <h2 className="text-xl font-bold text-gray-800">
+                    Assessor Details
+                  </h2>
+                  <p className="mt-1 text-sm text-gray-500">
+                    {selectedAssessor.fullName || "Assessor"}
+                  </p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowAssessorDetails(false);
+                    setSelectedAssessor(null);
+                  }}
+                  className="rounded-lg px-3 py-2 text-2xl text-gray-500 hover:bg-gray-100"
+                >
+                  ×
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-2">
+                {[
+                  ["Full Name", selectedAssessor.fullName],
+                  ["Assessor ID", selectedAssessor.assessorId],
+                  ["Father's Name", selectedAssessor.fatherName],
+                  ["Mother's Name", selectedAssessor.motherName],
+                  ["Email", selectedAssessor.email],
+                  ["Mobile", selectedAssessor.mobile],
+                  ["Gender", selectedAssessor.gender],
+                  ["Date of Birth", selectedAssessor.dob],
+                  ["Qualification", selectedAssessor.qualification],
+                  ["Specialization", selectedAssessor.specialization],
+                  ["Experience", selectedAssessor.experience],
+                  ["Status", selectedAssessor.status],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-lg bg-gray-50 p-3">
+                    <p className="text-xs font-medium uppercase text-gray-500">
+                      {label}
+                    </p>
+                    <p className="mt-1 break-words text-sm font-semibold text-gray-800">
+                      {value || "Not provided"}
+                    </p>
+                  </div>
+                ))}
+
+                <div className="rounded-lg bg-gray-50 p-3 sm:col-span-2">
+                  <p className="text-xs font-medium uppercase text-gray-500">
+                    Admin Remarks
+                  </p>
+                  <p className="mt-1 whitespace-pre-wrap text-sm text-gray-800">
+                    {selectedAssessor.adminRemarks || "No remarks"}
+                  </p>
+                </div>
+
+                {selectedAssessor.qualificationCertificatesUploaded && (
+                  <div className="rounded-lg bg-gray-50 p-3 sm:col-span-2">
+                    <p className="text-sm font-semibold text-gray-700">
+                      Qualification Certificates
+                    </p>
+
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {Object.entries({
+                        "10th": "tenth",
+                        "12th": "twelfth",
+                        Graduation: "graduation",
+                        "Post Graduation": "postGraduation",
+                        PhD: "phd",
+                      })
+                        .filter(
+                          ([, key]) =>
+                            selectedAssessor.qualificationCertificatesUploaded[key]
+                        )
+                        .map(([label]) => (
+                          <span
+                            key={label}
+                            className="rounded-full bg-green-100 px-3 py-1 text-xs text-green-800"
+                          >
+                            {label} uploaded
+                          </span>
+                        ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="flex justify-end border-t p-5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowAssessorDetails(false);
+                    setSelectedAssessor(null);
+                  }}
+                  className="rounded-lg bg-gray-200 px-5 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-300"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        
       </main>
     </div>
   );
