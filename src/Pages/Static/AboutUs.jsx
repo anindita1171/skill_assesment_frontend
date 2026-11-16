@@ -254,13 +254,7 @@ image:
     "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
 },
 
-{
-  name: "Priyadarshini Mangaraj",
-  role: "Assistant Manager-Standards",
-  email: "priyadarshini.mangaraj@cutm.ac.in",
-  image:
-    "https://www.shutterstock.com/shutterstock/photos/2807940593/display_1500/stock-vector-vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-2807940593.jpg",
-},
+
 
 {
   name: "Anindita Samal",
